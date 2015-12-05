@@ -1,6 +1,6 @@
 <?php
     require_once '../persistencia/conexaoBanco.php';
-    class dados_antigosDao{
+    class Dados_antigosDao{
 
         private $conexao = null;
 
