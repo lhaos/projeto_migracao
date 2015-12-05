@@ -14,7 +14,7 @@
 
         public function buscarProdutos(){
             try{
-                $stat = $this->conexao->query("select codigo, titulo, cor, tamanho from dados_antigos");
+                $stat = $this->conexao->query("select * from dados_antigos");
                 $array = $stat->fetchAll(PDO::FETCH_CLASS, 'dados_antigos');
 
                 return $array;
