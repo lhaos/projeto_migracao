@@ -1,7 +1,7 @@
 <?php
     require_once '../persistencia/conexaoBanco.php';
 
-    class produtos_tamanhosDao{
+    class Produtos_tamanhosDao{
         private $conexao = null;
 
         public function __construct(){}
