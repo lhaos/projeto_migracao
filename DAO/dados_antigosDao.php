@@ -1,5 +1,6 @@
 <?php
     require_once '../persistencia/conexaoBanco.php';
+    include_once '../modelo/dados_antigos.class.php';
     class Dados_antigosDao{
 
         private $conexao = null;
@@ -15,7 +16,7 @@
         public function buscarProdutos(){
             try{
                 $stat = $this->conexao->query("select * from dados_antigos");
-                $array = $stat->fetchAll(PDO::FETCH_CLASS, 'Dados_antigos');
+                $array = $stat->fetchAll(PDO::FETCH_OBJ);
 
                 return $array;
             }catch (Exception $e){

@@ -1,26 +1,13 @@
 <?php
-    /**try{
-        $conexao = new \PDO("mysql:host=localhost;dbname=teste_selecao", "root", "root");
-    }catch (\PDOException $e){
-        die("Erro código ".$e->getCode().": ".$e->getMessage());
-    }//fecha catch
-
-$sql = "Select * from dados_antigos";
-$stmt = $conexao->prepare($sql);
-$stmt->execute();
-$produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-foreach($produtos as $produto){
-    echo $produto['codigo']." - ".$produto['titulo']." - ".$produto['cor']." - ".$produto['tamanho']."<br>";
-}//fecha foreach**/
-
-class ConexaoBanco extends PDO{
+    class ConexaoBanco extends PDO{
 
     private static $instancia=null;
 
     public function ConexaoBanco($dsn,$usuario,$senha){
         //Construtor da classe pai PDO
         parent::__construct($dsn,$usuario,$senha);
+        $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
     }
 
     public static function getInstancia(){
